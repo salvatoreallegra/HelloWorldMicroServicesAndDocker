@@ -17,7 +17,11 @@ namespace HelloCallerService.Controllers
         public async Task<string> Get()
         {
             // Will need the GreeterService address when deployed
-            var response = await _httpClient.GetStringAsync("http://greeter-service/Greet");
+
+            // NEW:  Using environment variables
+            var greeterUrl = Environment.GetEnvironmentVariable("GREETER_SERVICE_URL") + "/Greet";
+
+            var response = await _httpClient.GetStringAsync(greeterUrl);
             return $"HelloCallerService says: {response}";
         }
     }
