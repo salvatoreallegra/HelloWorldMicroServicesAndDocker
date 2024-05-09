@@ -1,0 +1,6 @@
+@HelloCallerService_HostAddress = http://localhost:5143
+
+GET {{HelloCallerService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
